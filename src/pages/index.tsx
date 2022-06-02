@@ -12,10 +12,12 @@ const Home: NextPage = () => {
       <Title 
         title=" titulo aqui" 
         subtitle={
-        <span>Com um pequeno valor mensal, você <br></br> pode <b>adotar um pet virtualmente</b></span>
-        }>
-      </Title> 
-      <List>
+          <span>Com um pequeno valor mensal, você <br/> pode <b>adotar um pet virtualmente</b>
+          </span>
+        } 
+      /> 
+      
+      <List
         pets={[
           {
             id: 1,
@@ -30,7 +32,7 @@ const Home: NextPage = () => {
             photo: '/imagens/dog1.jpg'
           },
         ]}
-      </List>      
+      />      
     </>
   )
 }
