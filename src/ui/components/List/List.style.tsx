@@ -13,7 +13,8 @@ export const  ItemsList = styled('li')`
   gap: ${({ theme}) => theme.spacing(5)};
   margin-bottom: ${({ theme }) => theme.spacing(5)}; 
   border-radius: 8px;
-  box-shadow: 1px 1px 10px;
+  overflow: hidden;
+  box-shadow: 1px 2px 10px gray;
 
   ${({ theme }) => theme.breakpoints.down('md') } {
     grid-template-columns: repeat(1, 1fr);
