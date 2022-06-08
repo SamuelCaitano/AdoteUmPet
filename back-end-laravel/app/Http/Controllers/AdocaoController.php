@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AdocaoModel;
-use Illuminate\Http\Request;
+use App\Http\Requests\AdocaoRequest;
+use App\Http\Resources\AdocaoCollection;
+use App\Models\AdocaoModel; 
 
 class AdocaoController extends Controller
 {
+    public function index( )
+    {
+       $adocoes = AdocaoModel::with('pet')->get();
+
+       return new AdocaoCollection($adocoes);
+    }
     /**
      *  Cria um novo registro de adocao
      * 
-     * @param Request $request
-     * @return AdocaoModel
+     * @param AdocaoRequest $request
+     * @return Adocao
      *  */
-    public function store(Request $request)
+    public function store(AdocaoRequest $request)
     {
-        $request->validate([
-            'email' => ['required', 'email'],
-            'valor' => ['required', 'numeric', 'between:10,100'],
-            'pet_id' => ['required', 'int', 'exists:pets,id']
-        ]);
-
         $data = $request->all();
 
         return AdocaoModel::create($data);
