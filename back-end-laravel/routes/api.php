@@ -19,4 +19,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/pets', 'PetController@index')->name('pets');
-Route::get('/adocoes', 'AdocaoController@store')->name('adocoes');
+
+Route::post('/pets', 'PetController@store')->name('pets');
+
+Route::get('/adocoes', 'AdocaoController@index')->name('adocoes');
+
+Route::post('/adocoes', 'AdocaoController@store')->name('adocoes');
