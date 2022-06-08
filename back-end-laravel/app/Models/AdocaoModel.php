@@ -11,7 +11,17 @@ class AdocaoModel extends Model
     
     protected $fillable = [
         'email',
-        'valor',
+        'price',
         'pet_id'
     ];
+
+    /**
+     * Define a relação a adoção com o pet
+     * 
+     * @return BelongsTo
+     */
+    public function Pet()
+    {
+        return $this->belongsTo(PetModel::class);
+    }
 }
